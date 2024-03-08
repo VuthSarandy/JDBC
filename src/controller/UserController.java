@@ -1,12 +1,26 @@
 package controller;
 
 import model.User;
-import repository.UserRepository;
+import service.UserService;
+import unitl.Singleton;
 
 import java.util.List;
 
 public class UserController {
-    public static List<User> getAllUser(){
-        return UserRepository.getAllUsers();
+    private final UserService userService;
+    public UserController(){
+        userService = Singleton.userService();
     }
+public  List<User> getUser (){
+    return userService.getAllUser();
+}
+public void insertUser (User user){
+    userService.insertUser(user);
+}
+public void deleteById(Integer id) {
+    userService.deleteById(id);
+}
+public void updateByUser (User user){
+    userService.updateUser(user);
+}
 }

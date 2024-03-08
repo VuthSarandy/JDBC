@@ -1,9 +1,14 @@
-import view.UserView;
-
-import javax.swing.text.View;
+import view.View;
 
 public class Main {
+        private final View view;
+        Main (){
+            view = new View();
+        }
     public static void main(String[] args) {
-        UserView.ui();
+          while(true){
+              new Main().view.ui();
+              new Main().view.UserDesire();
+          }
     }
 }
